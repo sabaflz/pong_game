@@ -14,25 +14,28 @@ class Paddle(Turtle):
         self.penup()
         self.setheading(UP)
         self.set_position(side)
+        # self.speed(MOVE_CONSTANT*10)
 
     def set_position(self, side):
         if side == "right":
-            self.setposition(350, 0)
+            self.setposition(370, 0)
         elif side == "left":
-            self.setposition(-350, 0)
+            self.setposition(-380, 0)
 
-    def move(self):
-        self.set_direction()
-        self.forward(MOVE_CONSTANT)
+    # def move(self):
+    #     self.set_direction()
+    #     self.forward(MOVE_CONSTANT)
 
     def up(self):
         self.setheading(UP)
+        self.forward(MOVE_CONSTANT)
 
     def down(self):
         self.setheading(DOWN)
+        self.forward(MOVE_CONSTANT)
 
-    def set_direction(self):
-        if self.ycor() > 250:
-            self.down()
-        elif self.ycor() < -250:
-            self.up()
+    # def set_direction(self):
+    #     if self.ycor() > 250:
+    #         self.down()
+    #     elif self.ycor() < -250:
+    #         self.up()
