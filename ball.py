@@ -1,7 +1,7 @@
 from turtle import Turtle
 import random
 
-MOVE_CONSTANT = 20
+MOVE_CONSTANT = 10
 
 
 class Ball(Turtle):
@@ -10,9 +10,16 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.penup()
+        self.x_move = MOVE_CONSTANT
+        self.y_move = MOVE_CONSTANT
 
     def move(self):
-        if 360 > self.xcor() > -360 and 280 > self.ycor() > -280:
-            self.setheading(37)
-            self.forward(MOVE_CONSTANT)
-        # self.goto(370, 280)
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(new_x, new_y)
+
+    def bounce_y(self):
+        self.y_move *= -1
+
+    def bounce_x(self):
+        self.x_move *= -1
