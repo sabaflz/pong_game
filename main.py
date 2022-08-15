@@ -13,8 +13,10 @@ screen.tracer(0)
 
 right_paddle = Paddle("right")
 left_paddle = Paddle("left")
+
 scoreboard = Scoreboard()
 vertical_line = VerticalLine()
+
 ball = Ball()
 
 screen.listen()
@@ -43,10 +45,12 @@ while game_is_on:
     # Detect when the right paddle misses
     if ball.xcor() > 340:
         ball.reset_position()
+        scoreboard.update_score("right")
 
     # Detect when the left paddle misses
     if ball.xcor() < -350:
         ball.reset_position()
+        scoreboard.update_score("left")
 
 
 screen.exitonclick()
